@@ -1,0 +1,73 @@
+======================================================================
+Part (a): Friis, P_TX = 43.0 dBm, G_TX = 15.0 dBi, G_RX = 0.0 dBi
+    900 MHz: P_RX(0.05 km) =   -7.50 dBm, P_RX(1 km) =  -33.52 dBm, P_RX(10 km) =  -53.52 dBm
+   1900 MHz: P_RX(0.05 km) =  -13.99 dBm, P_RX(1 km) =  -40.02 dBm, P_RX(10 km) =  -60.02 dBm
+   3500 MHz: P_RX(0.05 km) =  -19.30 dBm, P_RX(1 km) =  -45.32 dBm, P_RX(10 km) =  -65.32 dBm
+  6 dB check: P_RX(1 km) - P_RX(2 km) at 1900 MHz = 6.0206 dB
+  6 dB check: P_RX(900 MHz) - P_RX(1800 MHz) at 1 km = 6.0206 dB
+  exact value 20*log10(2) = 6.0206 dB
+  mapper self-test passed: unit energy, nearest neighbours differ in one bit, noiseless round trip exact
+======================================================================
+Part (b) and lab tasks 1, 3: Monte Carlo BER, 1,000,000 bits per point, Eb/N0 0-16 dB
+  Eb/N0          BPSK        QPSK      16-QAM      64-QAM   BPSK theory
+      0      7.85e-02    7.89e-02    1.41e-01    2.00e-01   7.86e-02
+      1      5.64e-02    5.64e-02    1.19e-01    1.78e-01   5.63e-02
+      2      3.76e-02    3.73e-02    9.77e-02    1.57e-01   3.75e-02
+      3      2.28e-02    2.29e-02    7.74e-02    1.38e-01   2.29e-02
+      4      1.25e-02    1.24e-02    5.86e-02    1.18e-01   1.25e-02
+      5      5.95e-03    5.95e-03    4.16e-02    1.01e-01   5.95e-03
+      6      2.45e-03    2.36e-03    2.80e-02    8.39e-02   2.39e-03
+      7      7.66e-04    8.10e-04    1.70e-02    6.74e-02   7.73e-04
+      8      1.78e-04    1.75e-04    9.15e-03    5.23e-02   1.91e-04
+      9      3.50e-05    3.00e-05    4.29e-03    3.85e-02   3.36e-05
+     10      4.00e-06    2.00e-06    1.70e-03    2.63e-02   3.87e-06
+     11      0.00e+00    0.00e+00    5.50e-04    1.68e-02   2.61e-07
+     12      0.00e+00    0.00e+00    1.50e-04    9.63e-03   9.01e-09
+     13      0.00e+00    0.00e+00    2.20e-05    4.87e-03   1.33e-10
+     14      0.00e+00    0.00e+00    3.00e-06    2.17e-03   6.81e-13
+     15      0.00e+00    0.00e+00    0.00e+00    7.44e-04   9.12e-16
+     16      0.00e+00    0.00e+00    0.00e+00    2.27e-04   2.27e-19
+  Eb/N0 needed for BER = 0.001:
+    BPSK    Eb/N0 =  6.77 dB  (Es/N0 = SNR =  6.77 dB),  1 bit/s/Hz, Shannon minimum Eb/N0 at that efficiency =  0.00 dB, gap to Shannon = 6.77 dB
+    QPSK    Eb/N0 =  6.80 dB  (Es/N0 = SNR =  9.81 dB),  2 bit/s/Hz, Shannon minimum Eb/N0 at that efficiency =  1.76 dB, gap to Shannon = 5.04 dB
+    16-QAM  Eb/N0 = 10.47 dB  (Es/N0 = SNR = 16.49 dB),  4 bit/s/Hz, Shannon minimum Eb/N0 at that efficiency =  5.74 dB, gap to Shannon = 4.73 dB
+    64-QAM  Eb/N0 = 14.72 dB  (Es/N0 = SNR = 22.51 dB),  6 bit/s/Hz, Shannon minimum Eb/N0 at that efficiency = 10.21 dB, gap to Shannon = 4.51 dB
+  16-QAM - BPSK gap at BER 1e-3: 3.70 dB in Eb/N0, 9.72 dB in SNR per symbol (Es/N0)
+======================================================================
+Lab task 2: (7,5) rate-1/2 convolutional code, soft Viterbi, 600,000 info bits per point
+  Eb/N0 0.0 dB: coded BER 9.08e-02   uncoded BPSK (theory) 7.86e-02
+  Eb/N0 0.5 dB: coded BER 6.32e-02   uncoded BPSK (theory) 6.71e-02
+  Eb/N0 1.0 dB: coded BER 4.15e-02   uncoded BPSK (theory) 5.63e-02
+  Eb/N0 1.5 dB: coded BER 2.54e-02   uncoded BPSK (theory) 4.64e-02
+  Eb/N0 2.0 dB: coded BER 1.45e-02   uncoded BPSK (theory) 3.75e-02
+  Eb/N0 2.5 dB: coded BER 7.26e-03   uncoded BPSK (theory) 2.97e-02
+  Eb/N0 3.0 dB: coded BER 3.38e-03   uncoded BPSK (theory) 2.29e-02
+  Eb/N0 3.5 dB: coded BER 1.62e-03   uncoded BPSK (theory) 1.72e-02
+  Eb/N0 4.0 dB: coded BER 6.13e-04   uncoded BPSK (theory) 1.25e-02
+  Eb/N0 4.5 dB: coded BER 2.50e-04   uncoded BPSK (theory) 8.79e-03
+  Eb/N0 5.0 dB: coded BER 8.67e-05   uncoded BPSK (theory) 5.95e-03
+  Eb/N0 5.5 dB: coded BER 1.33e-05   uncoded BPSK (theory) 3.86e-03
+  Eb/N0 6.0 dB: coded BER 5.00e-06   uncoded BPSK (theory) 2.39e-03
+  Eb/N0 6.5 dB: coded BER 0.00e+00   uncoded BPSK (theory) 1.40e-03
+  Eb/N0 7.0 dB: coded BER 1.67e-06   uncoded BPSK (theory) 7.73e-04
+  coding gain at 1e-3: 3.02 dB, at 1e-4: 3.42 dB
+======================================================================
+Lab task 4: log-distance model at 1900 MHz, d0 = 0.1 km, PL(d0) = 78.02 dB (Friis)
+  n = 2.0: P_RX(1 km) =  -40.02 dBm, P_RX(10 km) =  -60.02 dBm, slope 20 dB/decade
+  n = 2.7: P_RX(1 km) =  -47.02 dBm, P_RX(10 km) =  -74.02 dBm, slope 27 dB/decade
+  n = 3.5: P_RX(1 km) =  -55.02 dBm, P_RX(10 km) =  -90.02 dBm, slope 35 dB/decade
+  n = 4.0: P_RX(1 km) =  -60.02 dBm, P_RX(10 km) = -100.02 dBm, slope 40 dB/decade
+    range to -100 dBm with n = 2.0:   998.27 km
+    range to -100 dBm with n = 2.7:    91.71 km
+    range to -100 dBm with n = 3.5:    19.29 km
+    range to -100 dBm with n = 4.0:     9.99 km
+Lab task 5: log-normal shadowing, n = 3.5, sigma = 8.0 dB, 4 realisations
+  check: sample std of the shadowing term = 8.00 dB; fraction of locations below mean - 1.645 sigma = 0.050
+  range to -100 dBm with a 95% shadowing margin (n = 3.5, sigma = 4.0): 12.51 km
+  range to -100 dBm with a 95% shadowing margin (n = 3.5, sigma = 8.0): 8.11 km
+======================================================================
+Lab task 6: throughput proxy k(1 - BER) against Shannon capacity log2(1 + SNR), SNR = Es/N0
+  BPSK    at SNR  10.0 dB: k(1-BER) = 1.000, k(1-h2(BER)) = 1.000, Shannon 3.459 bit/s/Hz; reaches 99% of 1 bits at SNR ~5.0 dB
+  QPSK    at SNR  10.0 dB: k(1-BER) = 1.998, k(1-h2(BER)) = 1.981, Shannon 3.463 bit/s/Hz; reaches 99% of 2 bits at SNR ~8.0 dB
+  16-QAM  at SNR  10.0 dB: k(1-BER) = 3.766, k(1-h2(BER)) = 2.713, Shannon 3.466 bit/s/Hz; reaches 99% of 4 bits at SNR ~14.0 dB
+  64-QAM  at SNR   9.8 dB: k(1-BER) = 5.061, k(1-h2(BER)) = 2.244, Shannon 3.394 bit/s/Hz; reaches 99% of 6 bits at SNR ~19.8 dB

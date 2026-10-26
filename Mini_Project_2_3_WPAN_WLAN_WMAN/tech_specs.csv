@@ -1,0 +1,10 @@
+tech,class,standard,band_GHz,peak_rate_Mbps,typical_rate_Mbps,range_min_m,range_typ_m,range_max_m,tx_power_dBm,power_class,mobility,licensed,source,assumption
+Zigbee,WPAN,IEEE 802.15.4 (2.4 GHz),2.4,0.25,0.1,10,30,100,0,very low,nomadic,no,S3,"typical rate assumes ~40% MAC efficiency; 10-20 m indoors per S3, 30 m used as typical line-of-sight mix"
+BLE (LE 1M/2M),WPAN,Bluetooth LE 5.x,2.4,2,0.8,5,30,100,0,very low,yes,no,"S1,S2","typical rate ~40% of the 2M PHY after protocol overhead; 0 dBm (Class 3) device"
+BLE Long Range (LE Coded),WPAN,Bluetooth LE 5.x Coded S=8,2.4,0.125,0.06,50,300,1000,10,low,yes,no,"S1,S2","1 km is the SIG upper figure with high TX power and a good receiver; 300 m used as typical; Class 1.5 (10 dBm)"
+Bluetooth Classic (BR/EDR),WPAN,Bluetooth BR/EDR Class 2,2.4,3,2,1,10,30,4,low,yes,no,S2,"Class 2 (4 dBm) handset; ~10 m is the classic Class 2 figure"
+Wi-Fi 5 (802.11ac),WLAN,IEEE 802.11ac,5,6933,560,10,35,70,20,medium,nomadic,no,"S4,S5,S8","typical: 2x2 80 MHz MCS9 PHY 866.7 Mbps x 65% MAC efficiency (S5); 35 m indoor (S4)"
+Wi-Fi 6 (802.11ax),WLAN,IEEE 802.11ax,2.4/5,9608,840,10,35,70,20,medium,nomadic,no,"S4,S6,S8","typical: 2x2 80 MHz MCS11 PHY 1201 Mbps x 70% (S5 rule of thumb); indoor range similar to 802.11ac (S4)"
+WiMAX fixed (802.16d),WMAN,IEEE 802.16-2004,2-11,100,40,1000,10000,30000,43,high,fixed,yes,S7,"typical rate and 10 km typical range are assumptions; 43 dBm base station is an assumed typical value"
+Mobile WiMAX (802.16e),WMAN,IEEE 802.16e,2.3/2.5/3.5,70,15,500,4000,10000,23,high,yes,yes,S7,"15 Mbps mobile / 70 Mbps fixed and 3-5 km mobile per S7; 23 dBm mobile station is an assumed typical value"
+WiMAX 2 (802.16m),WMAN,IEEE 802.16m,2-6,1000,100,500,5000,10000,23,high,yes,yes,S7,"100 Mbps mobile, 1 Gbps stationary per S7; 5 km typical is an assumption"

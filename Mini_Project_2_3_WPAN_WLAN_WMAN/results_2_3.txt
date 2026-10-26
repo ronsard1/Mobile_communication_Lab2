@@ -1,0 +1,76 @@
+================================================================================================
+Dataset (typical values used for decisions; peak values are standard maxima)
+                      tech class  peak_rate_Mbps  typical_rate_Mbps  range_typ_m  range_max_m  tx_power_dBm power_class  rate_x_range  Mbps_per_mW  area_capacity_Mbps_per_km2
+                    Zigbee  WPAN            0.25                0.1           30          100             0    very low             3          0.1                        35.4
+            BLE (LE 1M/2M)  WPAN               2                0.8           30          100             0    very low            24          0.8                         283
+ BLE Long Range (LE Coded)  WPAN           0.125               0.06          300         1000            10         low            18        0.006                       0.212
+Bluetooth Classic (BR/EDR)  WPAN               3                  2           10           30             4         low            20        0.796                    6.37e+03
+        Wi-Fi 5 (802.11ac)  WLAN        6.93e+03                560           35           70            20      medium      1.96e+04          5.6                    1.46e+05
+        Wi-Fi 6 (802.11ax)  WLAN        9.61e+03                840           35           70            20      medium      2.94e+04          8.4                    2.18e+05
+     WiMAX fixed (802.16d)  WMAN             100                 40        10000        30000            43        high         4e+05        0.002                       0.127
+    Mobile WiMAX (802.16e)  WMAN              70                 15         4000        10000            23        high         6e+04       0.0752                       0.298
+         WiMAX 2 (802.16m)  WMAN           1e+03                100         5000        10000            23        high         5e+05        0.501                        1.27
+================================================================================================
+S1: Smart home with many low-power sensors
+   R1 coverage: every room of a 150 m2 house, longest sensor-to-hub path about 15 m
+   R2 devices: 40 battery sensors (door, temperature, motion)
+   R3 throughput: each sensor sends a 100-byte report every 10 s (80 bit/s), bursts below 10 kbps; aggregate average 40 x 80 bit/s = 3.2 kbps; channel load must stay under 50%
+   R4 power: at least 2 years on a coin or AA cell, so very low or low power class
+   R5 cost/licensing: unlicensed band, cheap modules
+   technology                     range    rate   power  lic.  units needed / notes
+   Zigbee                           yes     yes     yes   yes  channel load 3.2% of typical rate   <- meets all
+   BLE (LE 1M/2M)                   yes     yes     yes   yes  channel load 0.4% of typical rate   <- meets all
+   BLE Long Range (LE Coded)        yes     yes     yes   yes  channel load 5.3% of typical rate   <- meets all
+   Bluetooth Classic (BR/EDR)       max     yes     yes   yes  channel load 0.2% of typical rate
+   Wi-Fi 5 (802.11ac)               yes     yes      no   yes  channel load 0.0% of typical rate
+   Wi-Fi 6 (802.11ax)               yes     yes      no   yes  channel load 0.0% of typical rate
+   WiMAX fixed (802.16d)            yes     yes      no   yes  channel load 0.0% of typical rate
+   Mobile WiMAX (802.16e)           yes     yes      no   yes  channel load 0.0% of typical rate
+   WiMAX 2 (802.16m)                yes     yes      no   yes  channel load 0.0% of typical rate
+   tool ranking of feasible options: BLE (LE 1M/2M), Zigbee, BLE Long Range (LE Coded)
+================================================================================================
+S2: Campus network, wide coverage and high aggregate throughput
+   R1 coverage: 40,000 m2 of indoor floor space in several buildings
+   R2 devices: 600 concurrent users (laptops and phones)
+   R3 throughput: 5 Mbps per user, 3 Gbps aggregate
+   R4 power: access points mains powered; client radios must stay within phone budgets (<= 20 dBm)
+   R5 cost/licensing: unlicensed, uses the laptops' and phones' built-in radios
+   technology                     range    rate   power  lic.  units needed / notes
+   Zigbee                           max      no     yes   yes  30,000 cells (coverage 22, capacity 30,000)
+   BLE (LE 1M/2M)                   max      no     yes   yes  3,750 cells (coverage 22, capacity 3,750)
+   BLE Long Range (LE Coded)        yes      no     yes   yes  50,000 cells (coverage 1, capacity 50,000)
+   Bluetooth Classic (BR/EDR)        no      no     yes   yes  1,500 cells (coverage 191, capacity 1,500)
+   Wi-Fi 5 (802.11ac)               yes     yes     yes   yes  16 cells (coverage 16, capacity 6)   <- meets all
+   Wi-Fi 6 (802.11ax)               yes     yes     yes   yes  16 cells (coverage 16, capacity 4)   <- meets all
+   WiMAX fixed (802.16d)            yes     yes      no   yes  75 cells (coverage 1, capacity 75)
+   Mobile WiMAX (802.16e)           yes     yes      no   yes  200 cells (coverage 1, capacity 200)
+   WiMAX 2 (802.16m)                yes     yes      no   yes  30 cells (coverage 1, capacity 30)
+   tool ranking of feasible options: Wi-Fi 6 (802.11ax), Wi-Fi 5 (802.11ac)
+================================================================================================
+S3: Metro-area fixed wireless link of several kilometres
+   R1 coverage: one point-to-point (or point-to-multipoint) hop of 8 km
+   R2 devices: one branch office router behind the subscriber unit
+   R3 throughput: 20 Mbps sustained
+   R4 power: both ends mains powered, high power class acceptable
+   R5 licensing: licensed spectrum preferred to avoid interference on a business link
+   technology                     range    rate   power  lic.  units needed / notes
+   Zigbee                            no      no     yes    no  rate margin x0.0, range margin x0.01 (max)
+   BLE (LE 1M/2M)                    no      no     yes    no  rate margin x0.0, range margin x0.01 (max)
+   BLE Long Range (LE Coded)         no      no     yes    no  rate margin x0.0, range margin x0.12 (max)
+   Bluetooth Classic (BR/EDR)        no      no     yes    no  rate margin x0.1, range margin x0.00 (max)
+   Wi-Fi 5 (802.11ac)                no     yes     yes    no  rate margin x28.0, range margin x0.01 (max)
+   Wi-Fi 6 (802.11ax)                no     yes     yes    no  rate margin x42.0, range margin x0.01 (max)
+   WiMAX fixed (802.16d)            yes     yes     yes   yes  rate margin x2.0, range margin x3.75 (max)   <- meets all
+   Mobile WiMAX (802.16e)           max      no     yes   yes  rate margin x0.8, range margin x1.25 (max)
+   WiMAX 2 (802.16m)                max     yes     yes   yes  rate margin x5.0, range margin x1.25 (max)
+   tool ranking of feasible options: WiMAX fixed (802.16d)
+================================================================================================
+Sources
+  [S1] Bluetooth SIG, Understanding Bluetooth range: bluetooth.com/learn-about-bluetooth/key-attributes/range/
+  [S2] MathWorks, Comparison of Bluetooth BR/EDR and Bluetooth LE: mathworks.com/help/bluetooth/gs/comparison-of-bluetooth-bredr-and-bluetooth-le.html
+  [S3] Wikipedia, Zigbee: en.wikipedia.org/wiki/Zigbee
+  [S4] RF Wireless World, Understanding IEEE 802.11 Wi-Fi standards: rfwireless-world.com/articles/understanding-ieee-802-11-wi-fi-standards
+  [S5] Cisco, 802.11ac wireless throughput testing and expectations (document 212892): cisco.com
+  [S6] Powertec technical library, 802.11ax Wi-Fi 6: portal.powertec.com.au/technical-library/wireless/wireless-technologies/wifi/80211ax-wifi-6
+  [S7] RF Wireless World, Understanding IEEE 802.16 WiMAX standards: rfwireless-world.com/articles/understanding-ieee-802-16-wimax-standards
+  [S8] SpeedtestHQ, Wi-Fi power output (mW and dBm): speedtesthq.com/guides/wifi/wifi-power-output-mw-dbm
